@@ -49,8 +49,7 @@ config KERNEL_DEBUG_FS
 	  ftrace, require the existence of debugfs.
 
 config KERNEL_MIPS_FP_SUPPORT
-	bool
-	default y if TARGET_pistachio
+	default y
 
 config KERNEL_ARM_PMU
 	bool
