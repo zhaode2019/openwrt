@@ -118,6 +118,10 @@ platform_do_upgrade() {
 		PART_NAME="inactive"
 		platform_do_upgrade_dualboot_datachk "$1"
 		;;
+	p2w,r619ac|\
+	p2w,r619ac-128m)
+		nand_do_upgrade "$1"
+		;;
 	zyxel,nbg6617)
 		zyxel_do_upgrade "$1"
 		;;
