@@ -17,10 +17,11 @@ ipq40xx_setup_interfaces()
 	alfa-network,ap120c-ac|\
 	engenius,emr3500|\
 	engenius,ens620ext|\
-	luma,wrtq-329acn)
+	luma,wrtq-329acn|\
+	plasmacloud,pa1200|\
+	plasmacloud,pa2200)
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "4:lan" "5:wan"
-		;;
 	aruba,ap-303|\
 	aruba,ap-365|\
 	avm,fritzrepeater-1200|\
@@ -81,10 +82,14 @@ ipq40xx_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "3:lan" "4:lan"
 		;;
+	devolo,magic-2-wifi-next)
+		ucidef_set_interface_lan "eth0 eth1 eth2"
+		;;
 	ezviz,cs-w3-wd1200g-eup)
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "2:lan:3" "3:lan:2" "4:lan:1" "5:wan"
 		;;
+	glinet,gl-ap1300 |\
 	glinet,gl-b1300 |\
 	glinet,gl-s1300)
 		ucidef_add_switch "switch0" \
@@ -129,6 +134,10 @@ ipq40xx_setup_macs()
 		;;
 	cilab,meshpoint-one)
 		label_mac=$(mtd_get_mac_binary "ART" 0x1006)
+		;;
+	devolo,magic-2-wifi-next)
+		lan_mac=$(mtd_get_mac_ascii APPSBLENV MacAddress0)
+		label_mac=$lan_mac
 		;;
 	dlink,dap-2610)
 		lan_mac=$(mtd_get_mac_ascii bdcfg lanmac)
