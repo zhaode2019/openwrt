@@ -28,7 +28,7 @@ DEFAULT_PACKAGES:=\
 	uci \
 	uclient-fetch \
 	urandom-seed \
-	luci luci-compat wget curl \
+	luci luci-compat wget-ssl curl \
 	default-settings luci-app-wol luci-app-vlmcsd luci-app-ramfree \
 	luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod \
 	urngd
